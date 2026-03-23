@@ -14,4 +14,4 @@ jobs:
           distribution: 'temurin'
 
       - name: Unit Test
-        uses: ./gradlew testDebugUnitTest
+        run: ./gradlew testDebugUnitTest
