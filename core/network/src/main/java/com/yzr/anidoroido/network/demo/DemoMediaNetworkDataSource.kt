@@ -13,7 +13,7 @@ import kotlinx.serialization.json.decodeFromStream
 import javax.inject.Inject
 
 class DemoMediaNetworkDataSource @Inject constructor(
-    @Dispatcher(IO) private val dispatcher: CoroutineDispatcher,
+    @param:Dispatcher(IO) private val dispatcher: CoroutineDispatcher,
     private val networkJson : Json,
     private val assets: DemoAssetManager
 ): MediaNetworkDataSource {

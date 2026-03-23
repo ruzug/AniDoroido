@@ -6,6 +6,10 @@ plugins {
 
 android {
     namespace = "com.yzr.anidoroido.database"
+
+    ksp {
+        arg("room.schemaLocation", "$projectDir/schemas")
+    }
 }
 
 dependencies {

@@ -12,6 +12,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -51,17 +52,27 @@ fun Test(
     viewModel: MainViewModel = viewModel(),
     modifier: Modifier = Modifier
 ) {
-    val mainUiState: MainUiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val mainUiState by viewModel.uiState.collectAsStateWithLifecycle()
+    AnimeList(mainUiState, modifier)
+}
+
+@Composable
+fun AnimeList(mainUiState: MainUiState, modifier: Modifier) {
     when (mainUiState) {
-        MainUiState.Loading -> Text(text = "Loading", modifier = modifier,)
-        is MainUiState.Success ->
+        is MainUiState.Loading -> Text(text = "Loading", modifier = modifier,)
+        is MainUiState.Success -> {
             LazyColumn(modifier = modifier) {
-                items((mainUiState as MainUiState.Success).animeList) { anime ->
+                items(
+                    items = mainUiState.animeList,
+                    key = { it.id },
+                    contentType = { "anime" }
+                ) { anime ->
                     Text(
                         text = anime.name,
                     )
                 }
             }
+        }
     }
 }
 
