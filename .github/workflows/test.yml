@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: set up JDK 17
+      - name: Setup JDK 17
         uses: actions/setup-java@v5
         with:
           java-version: '17'
@@ -15,3 +15,12 @@ jobs:
 
       - name: Unit Test
         run: ./gradlew testDebugUnitTest
+
+      - name: Check lint
+        run: ./gradlew lint
+
+      - name: Upload lint reports (HTML)
+        uses: actions/upload-artifact@v6
+        with:
+          name: lint-reports
+          path: 'app/build/reports/lint-results-debug.html'
