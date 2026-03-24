@@ -4,6 +4,9 @@ import android.annotation.SuppressLint
 import com.yzr.anidoroido.model.Anime
 import kotlinx.serialization.Serializable
 
+/**
+ * Temporary network class for Media (Anime)
+ */
 @SuppressLint("UnsafeOptInUsageError")
 @Serializable
 data class MediaNetwork (
@@ -28,6 +31,7 @@ data class MediaNetwork (
     )
 }
 
+@Suppress("unused")
 fun MediaNetwork.asExternalModel(): Anime =
     Anime(
         id = media?.id?: 0,

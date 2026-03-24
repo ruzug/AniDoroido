@@ -12,7 +12,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -49,8 +48,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
 @Composable
 fun Test(
-    viewModel: MainViewModel = viewModel(),
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: MainViewModel = viewModel()
 ) {
     val mainUiState by viewModel.uiState.collectAsStateWithLifecycle()
     AnimeList(mainUiState, modifier)
