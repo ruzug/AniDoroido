@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.ruzug.anidoroido.home.impl.HomeScreen
 import com.yzr.anidoroido.ui.theme.AniDoroidoTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,11 +28,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AniDoroidoTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                    Greeting(
-//                        name = "Android",
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
-                    Test(modifier = Modifier.padding(innerPadding))
+                    HomeScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
         }

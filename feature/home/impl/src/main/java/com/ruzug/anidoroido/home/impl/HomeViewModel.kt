@@ -1,4 +1,4 @@
-package com.yzr.anidoroido.home
+package com.ruzug.anidoroido.home.impl
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
